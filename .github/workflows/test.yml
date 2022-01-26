@@ -1,0 +1,14 @@
+on: [push]
+name: Test
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install Go
+      uses: actions/setup-go@v1
+      with:
+        go-version: 1.17.x
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Install qemu
+      run: sudo apt-get install qemu binfmt-support qemu-user-static
